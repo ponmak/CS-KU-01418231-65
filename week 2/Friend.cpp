@@ -133,7 +133,7 @@ int main(){
 
         if((int)Luna_gundam[luna_gundam_index][0] <= 0){
             luna_gundam_index++;
-            energy_luna = 0; // Reset energy
+            energy_luna = 0; // Reset energy                                                                                                                              
         }        
 
         if (miena_gundam_index >= character_num ){
