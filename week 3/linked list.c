@@ -59,6 +59,24 @@ void deleteHead(NumList* list) {
     }
 }
 
+void InsertBetween(NumList* list, Node* node){
+    Node*current = list->head->next;
+    
+    while (1){
+
+        if(current->data > node->data) {
+            node->next = current;
+            list->head->next = node;
+            if (list->length == 0) {
+                list->tail = node;
+            }
+            list->length++;
+            return;
+        }
+        current = current->next;
+    }
+}
+
 int main() {
     NumList list;
     initList(&list);

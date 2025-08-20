@@ -9,7 +9,7 @@ typedef struct Node {
 } Node;
 
 Node* createNode(int data) {
-    Node* newNode = (Node*)malloc(sizeof(Node));
+    Node* newNode = new Node();
     newNode->data = data;
     newNode->next = NULL;
     return newNode;
@@ -58,27 +58,58 @@ int main(){
     //     maker = maker->next;
     // }
 
+//     int Josephus(int N, int k)
+// {
 
-    // azkaban remake
+//     // Initialize variables i and ans with 1 and 0
+//     // respectively.
+
+//     int i = 1, ans = 0;
+
+//     // Run a while loop till i <= N
+
+//     while (i <= N) {
+
+//         // Update the Value of ans and Increment i by 1
+//         ans = (ans + k) % i;
+//         i++;
+//     }
+
+//     // Return required answer
+//     return ans + 1;
+// }
+
+
+    // cout << "x: " << x << endl;
+
+    // azkaban remake : Josephus
     Node* current = head;
+    Node* prev = NULL;
+    while (current->next != current) {
 
-    for (int i = 0; i < n; i++) {
+        if (current == prev) {
+            break;
+        }
 
-        Node* prev = current;
-
-        for (int j = 0; j < x - 1 ; j++){
+        int step = (x - 1) % n;
+        for (int i = 0; i < step; i++) {
             prev = current;
             current = current->next;
         }
-
-
+        
         cout << current->data << " ";
+
         Node* toDelete = current;
         prev->next = toDelete->next;
+        delete(toDelete);
 
+        // cout << endl;
+        
+        n--;
         current = prev->next;
-        free(toDelete);
     }
+
+    cout << current->data << endl;
 
 
     return 0;
