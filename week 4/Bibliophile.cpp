@@ -74,9 +74,16 @@ int main(){
                 cout << "None" << endl;
             } else {
                 stack<string> temp = bookTitles;
-                while (!temp.empty()) {
-                    cout << temp.top() << " ";
+                vector<string> reverse;
+                while (temp.size() != 0) {
+                    reverse.push_back(temp.top());
                     temp.pop();
+                }
+
+                // cout << reverse.size();
+
+                for (int i = reverse.size() - 1; i > -1; i-- ){
+                    cout << reverse[i] << " ";
                 }
                 cout << endl;
             }
